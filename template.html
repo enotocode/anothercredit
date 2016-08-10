@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+        <meta charset="UTF-8">
+    <title>Еще один кредит</title>
+</head>
+<body>
+    <h1>Еще один кредит</h1>
+     <!-- Форма -->
+    <h2>Введите условия кредита:</h2>
+    <form action="index.php" method="GET">
+        <p>Сумма кредита: <input autofocus type="text" name="amount" placeholder="Сумма в рублях"
+            value="<?php if (isset($values['amount'])): echo $values['amount']; endif; ?>"/>
+            <?php if (isset($errors['amount'])): echo $errors['amount']; endif; ?></p>
+        <p>Ежемесячная выплата: <input type="text" name="payment" placeholder="Сумма в рублях"
+            value="<?php if (isset($values['payment'])): echo $values['payment']; endif; ?>"/>
+            <?php if (isset($errors['payment'])): echo $errors['payment']; endif; ?></p>
+        <p>Комиссия и проценты в месяц: <input type="text" name="percent" placeholder="Проценты"
+            value="<?php if (isset($values['percent'])): echo $values['percent']; endif; ?>"/>
+            <?php if (isset($errors['percent'])): echo $errors['percent']; endif; ?></p>
+        <p><input type="submit"/></p>
+    </form>
+    <!-- Вывод результата -->
+    <?php if (isset($result)): ?>
+    <h2>Резултаты рассчета:</h2>
+    <p><?php echo $result; ?></p>
+    <?php endif; ?>
+</body>
+</html>
